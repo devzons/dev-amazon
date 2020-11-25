@@ -4,6 +4,8 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 
+const User = require('./models/User')
+
 dotenv.config()
 
 const app = express()
@@ -28,7 +30,18 @@ app.get('/', (req, res) => {
 
 // POST - send data from frontend to backend
 app.post('/', (req, res) => {
-  console.log(req.body.name)
+  let user = new User()
+  user.name = req.body.name
+  user.email = req.body.email
+  user.password = req.body.password
+
+  user.save((err) => {
+    if (err) {
+      res.json(err)
+    } else {
+      res.json('user saved successfully')
+    }
+  })
 })
 
 app.listen(3000, (err) => {
