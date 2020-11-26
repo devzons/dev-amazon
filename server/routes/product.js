@@ -32,3 +32,5 @@ router.post('/products', async (req, res) => {
 // PUT request - update a signle product
 
 // DELETE request - delete a single product
+
+module.exports = router
