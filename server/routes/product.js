@@ -90,5 +90,22 @@ router.put('/products/:id', upload.single('photo'), async (req, res) => {
 })
 
 // DELETE request - delete a single product
+router.delete('/products/:id', async (req, res) => {
+  try {
+    let deletedProduct = await Product.findOneAndDelete({ _id: req.params.id })
+
+    if (deletedProduct) {
+      res.json({
+        status: true,
+        message: 'Product deleted Successfully',
+      })
+    }
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    })
+  }
+})
 
 module.exports = router
