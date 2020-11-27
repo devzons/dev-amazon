@@ -10,7 +10,7 @@
             <!-- category dropdown -->
             <div class="a-spacing-top-medium">
               <label for="">Category</label>
-              <select class="a-select-option">
+              <select class="a-select-option" v-model="categoryID">
                 <option
                   v-for="category in categories"
                   :value="category._id"
@@ -22,7 +22,7 @@
             <!-- owner dropdown -->
             <div class="a-spacing-top-medium">
               <label for="">Owner</label>
-              <select class="a-select-option">
+              <select class="a-select-option" v-model="ownerID">
                 <option
                   v-for="owner in owners"
                   :value="owner._id"
@@ -34,12 +34,32 @@
             <!-- Title -->
             <div class="a-spacing-top-medium">
               <label>Title</label>
-              <input type="text" class="a-input-text" style="width: 100%;" />
+              <input
+                type="text"
+                class="a-input-text"
+                style="width: 100%;"
+                v-model="title"
+              />
             </div>
             <!-- Price -->
             <div class="a-spacing-top-medium">
               <label>Price</label>
-              <input type="number" class="a-input-text" style="width: 100%;" />
+              <input
+                type="number"
+                class="a-input-text"
+                style="width: 100%;"
+                v-model="price"
+              />
+            </div>
+            <!-- Stock Quantity -->
+            <div class="a-spacing-top-medium">
+              <label>Stock Quantity</label>
+              <input
+                type="number"
+                class="a-input-text"
+                style="width: 100%;"
+                v-model="stockQuantity"
+              />
             </div>
             <!-- Description -->
             <div class="a-spacing-top-medium">
@@ -47,6 +67,7 @@
               <textarea
                 placeholder="Product description"
                 style="width: 100%;"
+                v-model="description"
               ></textarea>
             </div>
             <!-- Photo -->
@@ -55,9 +76,9 @@
               <div class="a-row a-spacing-top-medium">
                 <label class="choosefile-button">
                   <i class="fal fa-plus"></i>
-                  <input type="file" />
+                  <input type="file" @change="onFileSelected" />
                 </label>
-                <p>name of the photo</p>
+                <p>{{ fileName }}</p>
               </div>
             </div>
             <hr />
@@ -65,7 +86,9 @@
             <div class="a-spacing-top-large">
               <span class="a-button-register">
                 <span class="a-button-inner">
-                  <span class="a-button-text">Add product</span>
+                  <span class="a-button-text" @click="onAddProduct"
+                    >Add product</span
+                  >
                 </span>
               </span>
             </div>
@@ -88,14 +111,49 @@ export default {
         owners
       ]);
 
-      console.log(catResponse);
-
       return {
         categories: catResponse.categories,
         owners: ownerResponse.owners
       };
     } catch (error) {
       console.log(error);
+    }
+  },
+
+  data() {
+    return {
+      categoryID: null,
+      ownerID: null,
+      title: "",
+      price: 0,
+      description: "",
+      selectedFile: null,
+      stockQuantity: 1,
+      fileName: ""
+    };
+  },
+  methods: {
+    onFileSelected(event) {
+      this.selectedFile = event.target.files[0];
+      console.log(this.selectedFile);
+      this.fileName = event.target.files[0].name;
+    },
+    async onAddProduct() {
+      let data = new FormData();
+      data.append("title", this.title);
+      data.append("price", this.price);
+      data.append("description", this.description);
+      data.append("ownID", this.ownID);
+      data.append("stockQuantity", this.stockQuantity);
+      data.append("categoryID", this.categoryID);
+      data.append("photo", this.selectedFile, this.selectedFile.name);
+
+      let result = await this.$axios.$post(
+        "http://localhost:3000/api/products",
+        data
+      );
+
+      this.$router.push("/");
     }
   }
 };
