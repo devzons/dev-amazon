@@ -1,6 +1,5 @@
 const router = require('express').Router()
 const Owner = require('../models/Owner')
-
 const upload = require('../middlewares/upload-photo')
 
 // POST request

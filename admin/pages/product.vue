@@ -9,7 +9,7 @@
           <form>
             <!-- category dropdown -->
             <div class="a-spacing-top-medium">
-              <label for="">Category</label>
+              <label>Category</label>
               <select class="a-select-option" v-model="categoryID">
                 <option
                   v-for="category in categories"
@@ -135,7 +135,6 @@ export default {
   methods: {
     onFileSelected(event) {
       this.selectedFile = event.target.files[0];
-      console.log(this.selectedFile);
       this.fileName = event.target.files[0].name;
     },
     async onAddProduct() {
