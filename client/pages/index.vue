@@ -1,37 +1,25 @@
 <template>
-  <div class="container">
-    <nust-link to="/products" class="a-button-buy-again"
-      >Add a new product</nust-link
-    >
-    <div>
-      <Logo />
-      <h1 class="title">
-        client
-      </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+  <main class="listingPage">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- sidebar -->
+        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4"></div>
+        <!-- main content -->
+        <div class="col-xl-10 col-lg-9 col-md-8 col-sm-8">
+          <FeaturedProduct />
+        </div>
       </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <script>
-export default {};
+import FeaturedProduct from "../components/FeaturedProduct";
+export default {
+  components: {
+    FeaturedProduct
+  }
+};
 </script>
 
 <style></style>
