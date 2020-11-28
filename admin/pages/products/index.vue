@@ -139,12 +139,12 @@ export default {
     },
     async onAddProduct() {
       let data = new FormData();
-      data.append("title", this.title);
-      data.append("price", this.price);
-      data.append("description", this.description);
-      data.append("ownID", this.ownID);
-      data.append("stockQuantity", this.stockQuantity);
+      data.append("ownerID", this.ownerID);
       data.append("categoryID", this.categoryID);
+      data.append("title", this.title);
+      data.append("description", this.description);
+      data.append("price", this.price);
+      data.append("stockQuantity", this.stockQuantity);
       data.append("photo", this.selectedFile, this.selectedFile.name);
 
       let result = await this.$axios.$post(
