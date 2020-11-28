@@ -916,14 +916,14 @@ header form input{
     font-weight: 700;
 }
 
-.dekstop-nav{
+.desktop-nav{
   display: block;
 }
 .mobile-nav{
   display: none;
 }
 @media(max-width: 780px){
-  .dekstop-nav{
+  .desktop-nav{
     display: none;
   }
   .mobile-nav{
