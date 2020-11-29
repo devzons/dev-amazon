@@ -298,9 +298,9 @@
                     <div class="a-section a-spacing-none">
                       <div class="a-section a-spacing-none a-spacing-top-mini">
                         This item ships to
-                        <b>California</b>
-                        <b>Get it by Monday, Nov 23 - Monday, Nov. 30</b>
-                        Choose this data at checkout
+                        <b>California</b>.
+                        <b>Get it by Monday, Nov 23 - Monday, Nov. 30</b>.
+                        Choose this date at checkout
                       </div>
                     </div>
                   </div>
@@ -335,6 +335,46 @@
             </div>
             <div class="kcpAppBaseBox text-center">
               <img src="/img/readyondevice.png" class="img-fluid" />
+            </div>
+          </div>
+        </div>
+        <br />
+        <hr />
+        <div class="books-entity-teaser">
+          <div class="bucket">
+            <h2>Mor about the author</h2>
+            <div class="content">
+              <div class="row">
+                <!-- author image and button -->
+                <div class="col-md-2 col-sm-4 col-4">
+                  <div class="authorContent">
+                    <div class="authorImageSingle">
+                      <a href="#">
+                        <img src="/img/featuredProduct.jpg" class="img-fluid" />
+                      </a>
+                    </div>
+                    <div class="authorFollow">
+                      <button class="followButton" type="button">
+                        <span class="pr-fb-icon"></span>
+                        <span class="pr-fb-text">Follow</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!-- author about -->
+                <div class="col-md-10 col-sm-8 col-8 pl-0">
+                  <div class="mainContent">
+                    <h3>Biography</h3>
+                    <div id="authorBio">
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                      Eos corporis ad dolore voluptatem, exercitationem
+                      doloribus, harum consequuntur nam est recusandae
+                      cupiditate! Consequatur corporis ea aperiam unde aliquam
+                      nobis quas facere.
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
