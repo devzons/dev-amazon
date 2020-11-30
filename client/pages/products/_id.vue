@@ -224,7 +224,8 @@
                         <input
                           type="radio"
                           id="test1"
-                          name="radio-group checked"
+                          name="radio-group"
+                          checked
                         />
                         <label for="test1">Buy Now</label>
                       </form>
@@ -386,7 +387,6 @@ export default {
   async asyncData({ $axios, params }) {
     try {
       let response = await $axios.$get(`/api/products/${params.id}`);
-      console.log(response);
 
       return {
         product: response.product
